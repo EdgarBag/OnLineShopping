@@ -1,0 +1,66 @@
+<div class="payment-page">
+
+
+  <!--  User cart Component -->
+  <app-cart></app-cart>
+
+  <!-- Shipping details Div -->
+  <div class="shippingDetails">
+
+    <br><br>
+    <h3>Order</h3>
+    <hr noshade size="10" width="75%">
+    <p>Shipping Details:</p>
+    <hr noshade size="10" width="75%">
+
+    <div class="modal1" *ngIf="order._id" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Your purchase was successful!!!</h5>
+          </div>
+          <div class="modal-body">
+            <img src="/assets/images/ok.png" class="ok" alt="success" />
+          </div>
+          <div class="modal-footer">
+            <button routerLink="/home" class="btn btn-primary">Take me to products</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+
+      <form #shipDetailsForm='ngForm' *ngIf="!order._id">
+        <select required #cityInfo='ngModel' name='city' [(ngModel)]='order.shippingCity'>
+          <option selected>{{order.shippingCity}}</option>
+          <option *ngFor='let c of cities'>{{c.name}}</option>
+        </select>
+        <span *ngIf='cityInfo.errors?.required && cityInfo.touched'>Missing City</span>
+        <br><br>
+
+        <input type="text" required #orderStreet='ngModel' placeholder="Street" name="street"
+          [(ngModel)]='order.shippingStreet'>
+        <span *ngIf='orderStreet.errors?.required && orderStreet.touched'>Missing street</span>
+        <br><br>
+
+        <input type="date" required [(ngModel)]='order.dateOfShipping' #dateOrder='ngModel' name="date">
+        <span *ngIf='dateOrder.errors?.required && dateOrder.touched'>Missing Date</span>
+        <br><br>
+
+        <hr noshade size="10" width="75%">
+        <p>Payments Details:</p>
+        <hr noshade size="10" width="75%">
+
+        <input type="number" required #orderCreditCart='ngModel' placeholder="Credit Cart" name="creditCard"
+          [(ngModel)]='order.creditCard'>
+        <br><br>
+
+        <button [disabled]='shipDetailsForm.form.invalid' (click)='sendOrder()' class="btn btn-success">
+          Order</button>
+
+      </form>
+    </div>
+  </div>
+
+</div>

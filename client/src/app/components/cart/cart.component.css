@@ -1,0 +1,62 @@
+section {
+  height: 100%;
+  border: 1px solid black;
+  text-align: center;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 8% 85% 7%;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+header {
+  grid-column: span 12;
+}
+
+main {
+  grid-column: span 12;
+  overflow: auto;
+  height: 100%;
+
+}
+
+footer {
+  border: 1px solid black;
+  grid-column: span 12;
+  overflow: auto;
+}
+
+.cartItemDiv {
+  border: 1px solid white;
+  width: 100%;
+}
+
+.buttons {
+  float: right;
+  font-size: small;
+  font-weight: bold;
+}
+
+button {
+  margin-right: 2px;
+}
+
+h5 {
+  float: left;
+  margin-left: 5px;
+}
+
+.deleteOne {
+  width: 20px;
+  transform: translateY(-10px) translateX(-10px);
+
+}
+
+.backToshop {
+  float: right;
+  font-weight: 700;
+}
+
+hr {
+  width: 75%;
+  font-weight: bold;
+}

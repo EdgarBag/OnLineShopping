@@ -1,0 +1,47 @@
+section {
+  height: 100%;
+  border: 1px solid black;
+  text-align: center;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 8% 85% 7%;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+header {
+  grid-column: span 12;
+}
+
+
+main {
+  grid-column: span 12;
+  overflow: auto;
+  height: 100%;
+}
+
+footer {
+  border: 1px solid black;
+  grid-column: span 12;
+  overflow: auto;
+}
+
+.addImg {
+  width: 30px;
+  float: right
+}
+
+form>span {
+  color: red;
+  font-weight: bold;
+  position: absolute;
+  font-size: large;
+  margin-top: 10px;
+  transform: translateY(-50%) translateX(10px);
+}
+
+input,
+select {
+  width: 190px;
+  border-radius: 10px;
+  margin-right: 30px;
+}

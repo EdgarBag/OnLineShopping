@@ -1,0 +1,25 @@
+.header {
+  color: cyan;
+  height: 100%;
+  border: solid 1px black;
+}
+
+img {
+  border-radius: 20px;
+  width: 140px;
+  margin-right: -300px;
+
+}
+
+#userGreetings {
+  float: right;
+  margin-right: 40px;
+}
+
+#contactUs {
+  float: left;
+}
+
+#onLine {
+  float: left;
+}

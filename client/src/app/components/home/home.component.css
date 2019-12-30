@@ -1,0 +1,128 @@
+.homePage {
+  grid-template-columns: repeat(12, 1fr);
+  height: 100%;
+  display: grid;
+  overflow: auto;
+  color: #007bff;
+  text-align: center;
+}
+
+.cartDiv {
+  border: 1px solid black;
+  grid-column: span 3;
+  height: 100%;
+
+}
+
+.productsDiv {
+  border: 1px solid black;
+  grid-column: span 9;
+  height: 100%;
+}
+
+h2 {
+  margin-right: 200px;
+}
+
+hr {
+  margin-bottom: 1rem;
+  border: dashed;
+  border-top: 1px solid blue;
+}
+
+
+.categoriesDiv {
+  float: left;
+  grid-column: span 12;
+}
+
+.productDiv {
+  border: solid 2px blanchedalmond;
+  background-color: rgba(245, 213, 35, 0.712);
+  color: black;
+  float: left;
+  box-sizing: border-box;
+  padding: 3px;
+  margin: 2px;
+  border-radius: 10px
+}
+
+.searchButton {
+  font-weight: bolder;
+}
+
+.container {
+  height: 100%;
+  height: 330px;
+  width: 330px;
+}
+
+.current-link {
+  color: magenta;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+a {
+  color: black;
+  font-size: medium;
+  display: block;
+  margin: 5px;
+}
+
+.loading {
+  width: 100px;
+}
+
+.searchDiv {
+  float: left;
+}
+
+input,
+button {
+  margin: 2px;
+  width: 200px;
+  border-radius: 10px;
+}
+
+.cart {
+  grid-template-columns: repeat(12, 1fr);
+  height: 100%;
+  display: grid;
+}
+
+.cart-header {
+  grid-column: span 12;
+  height: 10%;
+}
+
+.cart-body {
+  grid-column: span 12;
+  height: 10%;
+}
+
+.kindClass {
+  border: solid 2px gold;
+  border-radius: 20px;
+
+  background-color: gold;
+  transform: translateY(-7%);
+}
+
+.kind {
+  transform: translateY(30%);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: x-large;
+  color: black;
+}
+
+.modal {
+  display: inline-block;
+}
+
+.productIMG {
+  width: 290px;
+  height: 240px;
+  border-radius: 20px;
+}

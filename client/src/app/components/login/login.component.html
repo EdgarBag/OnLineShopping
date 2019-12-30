@@ -1,0 +1,86 @@
+<div class="loginPage">
+
+
+  <div class="login">
+
+    <div *ngIf='ifUserLogIn'>
+      <button (click)='goToHomePage()'>{{resume}}</button>
+    </div>
+
+
+    <form #loginForm="ngForm" *ngIf='!ifUserLogIn'>
+
+      <br>
+      <p>Registered?</p>
+
+      <div class="loginDetails">
+
+        <input required type="text" #userFirstNameInfo="ngModel" name="userFirstName" placeholder="User Name"
+          [(ngModel)]="user.userFirstName">
+        <span class="logInErorr" *ngIf="userFirstNameInfo.errors?.required && userFirstNameInfo.touched">Missing User
+          Name</span>
+        <br><br>
+
+        <input type="password" placeholder="Password" required #userPassword='ngModel' name="userPassword"
+          [(ngModel)]='user.password'>
+        <span class="logInErorr" *ngIf='userPassword.errors?.required && userPassword.touched'>Missing Password</span>
+        <br><br>
+
+        <button class="loginButton" [disabled]='loginForm.form.invalid' (click)="logIn()"
+          class="btn btn-primary">Login</button>
+        <a routerLink="/signup">Register now!!</a>
+
+      </div>
+
+    </form>
+
+  </div>
+
+  <div class="infoOfOurStore">
+
+    <h2>Why you should shop online</h2>
+
+    <span class="star"> &#10057; &#10057; &#10057;</span>
+    <p>Online Shopping Is Cheaper
+      Online shopping is typically cheaper than going to a physical store, even if there is not much of a difference
+      between the price. There is a simple reason for that. Online shopping sites do not need to be run and established
+      like the physical stores. This saves a lot of cost for online stores and this is why they can provide products at
+      cheaper rates.</p>
+
+    <span class="star"> &#10057; &#10057; &#10057;</span>
+    <p>Easier To Search Your Favorite Products
+      Finding what you need at a physical store can be a lot of pain, but it only takes a few seconds when you’re
+      shopping online thanks to search and filtering options.</p>
+    <span class="star"> &#10057; &#10057; &#10057;</span>
+    
+    <p>Saves Time
+      Time is a luxury and you cannot afford to waste it. Going out to shop means you’re wasting half your day as
+      traveling alone can be taxing. But, when you shop online it takes a few minutes as one Google search shows you
+      what you want.</p>
+  </div>
+
+  <div class="infoOforders">
+
+    <div id="openInfo">
+      <h2>At this moment we have {{this.countfOfProducts}} available product(s) on our site!</h2>
+      <h2>At all times, there were {{this.countOfAllOrders}} order(s) on our site!</h2>
+      <br>
+    </div>
+
+    <img src="/assets/images/products.jpg">
+    <img *ngIf="!countfOfProducts" class="loading" src="/assets/images/loading.gif">
+    <br><br>
+    <hr noshade size="10" width="75%">
+
+    <div *ngIf='ifUserLogIn'>
+      <h2>Notification:</h2>
+      <h3>{{infoOfcustomer}}</h3>
+    </div>
+
+  </div>
+
+
+
+
+
+</div>

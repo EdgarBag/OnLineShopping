@@ -1,0 +1,38 @@
+<div class="homePage">
+
+  <!-- Div with two carts component, displayed according to type of user -->
+  <div class="cartDiv">
+    <app-cart *ngIf='isAdmin==false'></app-cart>
+    <app-admin-cart *ngIf='isAdmin==true'></app-admin-cart>
+  </div>
+
+
+  <div class="productsDiv">
+
+    <div class="searchDiv">
+      <input type="text" placeholder="search" [(ngModel)]='searchValue'>
+      <button class="searchButton btn btn-outline-success" (click)='searchProduct()'> Find product</button>
+    </div>
+
+    <h2>Our Products</h2>
+    <img *ngIf="!products" class="loading" src="/assets/images/loading.gif">
+
+    <div class="products" *ngIf="products">
+      <nav class="nav nav-pills flex-column flex-sm-row">
+        <a class="flex-sm-fill text-sm-center nav-link active" routerLink="/home" routerLinkActive="current-link"
+          *ngFor='let c of categories' (click)="getAllProducts(c._id,c.categoryName)">{{ c.categoryName }}</a>
+      </nav>
+
+      <div class="kindClass">
+        <p class="kind">{{kind}}</p>
+      </div>
+
+      <div class="container productDiv" *ngFor='let p of products' (click)='checkPermissions(p)' id="{{p._id}}">
+        <h3>{{p.name}}</h3>
+        <h3>Price : {{p.priceOfProduct | currency:'USD'}}</h3>
+        <img src="http://localhost:3000/{{p.nameOfimgOfProduct}}" alt="imgProduct" class="productIMG">
+      </div>
+    </div>
+  </div>
+
+</div>

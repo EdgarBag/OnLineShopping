@@ -1,0 +1,52 @@
+.loginPage {
+  grid-template-columns: repeat(12, 1fr);
+  height: 100%;
+  display: grid;
+}
+
+.login {
+  border: solid 1px black;
+  grid-column: span 4;
+  height: 100%;
+}
+
+.loginDetails {
+  position: relative;
+}
+
+.infoOfOurStore {
+  grid-column: span 4;
+  height: 100%;
+  border: solid 1px black;
+  color: goldenrod;
+
+}
+
+.infoOforders {
+  grid-column: span 4;
+  height: 100%;
+  border: solid 1px black;
+}
+
+.logInErorr {
+  color: red;
+  font-weight: bold;
+  position: absolute;
+  font-size: large;
+  margin-top: 10px;
+  transform: translateY(-50%) translateX(10px);
+}
+
+img {
+  width: 450px;
+  margin: auto;
+  border-radius: 30px;
+}
+
+.loading {
+  width: 100px;
+}
+
+/* #openInfo {
+  color: red;
+} */

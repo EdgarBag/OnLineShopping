@@ -1,0 +1,26 @@
+section {
+  height: 100%;
+  border: 1px solid black;
+  text-align: center;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 13% 80% 7%;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+header {
+  border: 1px solid black;
+  grid-column: span 12;
+}
+
+main {
+  border: 1px solid black;
+  grid-column: span 12;
+  overflow: auto;
+  height: 100%;
+}
+
+footer {
+  border: 1px solid black;
+  grid-column: span 12;
+}

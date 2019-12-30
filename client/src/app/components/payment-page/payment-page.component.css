@@ -1,0 +1,60 @@
+.payment-page {
+  height: 100%;
+  border: 1px solid black;
+  text-align: center;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: repeat(12, 1fr);
+  color: #007bff;
+}
+
+app-cart {
+  border: solid 1px black;
+  grid-column: span 3;
+  height: 100%;
+}
+
+.shippingDetails {
+  border: solid 1px black;
+  grid-column: span 9;
+  height: 100%;
+}
+
+hr {
+  width: 75%;
+  font-weight: bold;
+}
+
+form>span {
+  color: red;
+  font-weight: bold;
+  position: absolute;
+  font-size: large;
+  margin-top: 10px;
+  transform: translateY(-50%) translateX(10px);
+}
+
+input,
+select {
+  width: 190px;
+  border-radius: 10px;
+}
+
+.ok {
+  width: 40px;
+}
+
+.modal-title {
+  text-align: center;
+}
+
+p {
+  font-size: x-large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bolder;
+}
+
+h2 {
+  margin-left: 60px;
+}

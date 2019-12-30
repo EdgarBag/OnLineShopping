@@ -1,0 +1,101 @@
+<section>
+
+  <header class="cart-header">
+
+    <input type="image" src="assets/images/add.png" alt="Submit" class="addImg" (click)='showAddForm()'
+      *ngIf='viewUpdate===true' />
+    <input type="image" src="assets/images/update.png" alt="Submit" class="addImg" (click)='showUpdateForm()'
+      *ngIf='viewUpdate===false' />
+    <h3>Admin</h3>
+    <p>{{pForAction}}</p>
+
+    <hr noshade size="10" width="75%"><br>
+
+  </header>
+
+
+  <main>
+    <div class="mainDiv">
+
+      <form #updateForm='ngForm' *ngIf='viewUpdate===true'>
+        <br><br>
+
+        <label>Product ID</label>
+
+        <input type="text" disabled #productId='ngModel' name="Id" [ngModel]="product._id">
+        <br><br>
+
+        <label> Category</label>
+        <select name="category" required #categoryInfo='ngModel' [(ngModel)]='product.category'>
+          <!-- <option disabled [selected] *ngIf='!product.category'>Please Select Category</option> -->
+          <option selected *ngIf='product.category'>{{product.category.categoryName}}</option>
+          <option *ngFor='let c of categories'>{{c.categoryName}}</option>
+        </select>
+        <br><br>
+
+        <label>Product : </label>
+        <input type="text" required #productName='ngModel' placeholder="Product Name" name="ProductName"
+          [(ngModel)]="product.name">
+        <span *ngIf='productName.errors?.required && productName.touched'>Missing Product Name</span>
+        <br><br>
+
+        <label>Price : </label>
+        <input type="number" required #productPrice="ngModel" name='price' placeholder="price"
+          [(ngModel)]='product.priceOfProduct'>
+        <span *ngIf='productPrice.errors?.required && productPrice.touched'>Missing Price</span>
+        <br><br>
+
+        <label>Image : </label>
+        <input type="file" (change)="onFileSelected($event)" name="image" required #productIMG='ngModel'
+          (ngModel)='newProduct.nameOfimgOfProduct'>
+        <span *ngIf='productIMG.errors?.required && productIMG.touched'>Missing Image</span>
+        <br><br>
+
+        <button [disabled]='updateForm.form.invalid' (click)='updateProduct()' class="btn btn-success"> Update A
+          Product</button>
+
+      </form>
+
+
+      <form #addProductForm='ngForm' *ngIf='viewUpdate===false'>
+        <br><br>
+
+        <label> Product Name:</label>
+        <input type="text" required #productName='ngModel' name="name" placeholder="Product Name"
+          [(ngModel)]='newProduct.name'>
+        <span *ngIf='productName.errors?.required && productName.touched'>Missing name</span>
+        <br><br>
+
+        <label>Product Category:</label>
+        <select required #categoryOfNewProduct='ngModel' name="category" [(ngModel)]='newProduct.category'>
+          <option selected>Please select category</option>
+          <option [ngValue]='c._id' *ngFor='let c of categories'>{{c.categoryName}}</option>
+        </select>
+        <span *ngIf='categoryOfNewProduct.errors?.required && categoryOfNewProduct.touched'>Missing Category</span>
+        <br><br>
+
+        <label>Product Price :</label>
+        <input type="number" required name="price" #priceOfNewProduct='ngModel' placeholder="Price"
+          [(ngModel)]='newProduct.priceOfProduct'>
+        <span *ngIf='priceOfNewProduct.errors?.required && priceOfNewProduct.touched'>Missing Price</span>
+        <br><br>
+
+        <label>Product Image :</label>
+        <input type="file" (change)="onFileSelected($event)" name="image" required #imageOfNewProduct='ngModel'
+          (ngModel)='newProduct.nameOfimgOfProduct'>
+        <span *ngIf='imageOfNewProduct.errors?.required && imageOfNewProduct.touched'>Missing Image </span>
+        <br><br>
+
+        <button [disabled]='addProductForm.form.invalid' (click)='addProduct()' class="btn btn-success">Add New
+          Product</button>
+      </form>
+
+    </div>
+  </main>
+
+
+
+  <footer>
+
+  </footer>
+</section>

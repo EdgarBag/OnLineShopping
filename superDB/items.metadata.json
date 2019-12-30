@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"superDB.items"}],"uuid":"85c53008929c424eb6a54890e85fd77a"}

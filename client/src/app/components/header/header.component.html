@@ -1,0 +1,16 @@
+<div class="header">
+
+  <img src="/assets/images/logo.gif">
+
+  <div id="userGreetings" class="flex-sm-fill text-sm-center">
+    <label>Contact us:</label>
+    <p>052-9999999 or support@shop.co.il</p>
+    <p> Hello <span>{{user}}</span></p>
+  </div>
+
+
+  <div *ngIf='onLine===1' id="onLine" class="flex-sm-fill text-sm-center">
+    <button (click)="logOut()" class="btn btn-dark">Logout</button>
+    <img src="/assets/images/online.gif">
+  </div>
+</div>

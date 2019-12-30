@@ -1,0 +1,40 @@
+<section>
+  <header class="cart-header">
+    <a routerLink="/home" class="backToshop" *ngIf='payment===1'>Back to Shop</a>
+    <h2>My Cart</h2>
+    <hr noshade size="10" width="75%">
+  </header>
+
+  <main>
+
+    <div class="cartItemDiv" *ngFor='let i of cartItems'>
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center" id='{{i._id}}'>
+          <input type="image" src="assets/images/x.png" alt="Submit" class="deleteOne" *ngIf='payment===0'
+            (click)='deleteOneItemFromCart(i._id)' />
+
+          {{i.productID.name}} : {{i.productID.priceOfProduct| currency:'USD'}} per item
+          <span class="badge badge-primary badge-pill"> amount {{i.amount}} </span>
+          <span class="badge badge-primary badge-pill"> <img
+              src="http://localhost:3000/{{i.productID.nameOfimgOfProduct}}" alt="imgProduct" height="42" width="42">
+          </span>
+        </li>
+      </ul>
+
+    </div>
+    <span *ngIf='cartItems.length===0' class="payment">You have a cart, but it's empty, let's start shopping!!!</span>
+
+  </main>
+
+  <footer>
+    <h5>Total: {{this.totalPrice | currency:'USD'}}</h5>
+    <h5>Item(s): {{this.totalItems}}</h5>
+    <div class="buttons">
+      <button *ngIf='payment===0' (click)='deleteAllItemsFromCart()' class="btn btn-outline-danger btn-xs">Clear
+        Cart</button>
+      <button (click)=' goToOrderPage()' class="order btn btn-outline-success btn-xs" *ngIf='payment===0'>Order</button>
+    </div>
+  </footer>
+
+
+</section>

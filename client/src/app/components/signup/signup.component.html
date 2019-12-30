@@ -1,0 +1,58 @@
+<a id="signIn" routerLink="/login">Sign In</a>
+
+<div class="signUp container">
+
+  <form #signUpFormInfo='ngForm'>
+
+    <input type="email" required #userEmail='ngModel' placeholder="Email:test@example.com" name="email"
+      [(ngModel)]='user.email'>
+    <span *ngIf='userEmail.errors?.required && userEmail.touched'>Missing Email</span>
+    <br><br>
+
+    <input type="number" required #phoneNumber='ngModel' placeholder=" Phone Number" name="phone"
+      [(ngModel)]='user.phoneNumber'>
+    <span *ngIf='phoneNumber.errors?.required && phoneNumber.touched'>Missing Phone number</span>
+    <br><br>
+
+    <input type="password" required #userPassword='ngModel' placeholder=" Password" name="password"
+      [(ngModel)]='user.password'>
+    <span *ngIf='userPassword.errors?.required && userPassword.touched'>Missing Password</span>
+    <br><br>
+
+    <input type="password" required #userPasswordConfirm='ngModel' placeholder=" Confirm Password"
+      name="passwordConfirm" (ngModel)='user.passwordConfirm'>
+    <span *ngIf='userPasswordConfirm.errors?.required && userPasswordConfirm.touched'>Missing Password </span><br>
+    <span *ngIf="userPassword.value!=userPasswordConfirm.value">Password and confirm password not matched</span>
+    <br><br>
+
+    <select required #cityInfo='ngModel' name='city' [(ngModel)]='user.city'>
+      <option selected>Please select a city</option>
+      <option *ngFor='let c of cities'>{{c.name}}</option>
+    </select>
+    <span *ngIf='cityInfo.errors?.required && cityInfo.touched'>Missing City</span>
+    <br><br>
+
+    <input type="text" required #userStreet='ngModel' placeholder="Street" name="street" [(ngModel)]='user.street'>
+    <span *ngIf='userStreet.errors?.required && userStreet.touched'>Missing street</span>
+    <br><br>
+
+    <input type="number" required #userBuildingNumber='ngModel' placeholder=" Building Number" name="buildingNumber"
+      [(ngModel)]='user.buildingNumber'>
+    <span *ngIf='userBuildingNumber.errors?.required && userBuildingNumber.touched'>Missing Building Number</span>
+    <br><br>
+
+    <input type="text" required #userFirstName='ngModel' placeholder="  First Name" name="name"
+      [(ngModel)]='user.userFirstName'>
+    <span *ngIf='userFirstName.errors?.required && userFirstName.touched'>Missing First Name</span>
+    <br><br>
+
+    <input type="text" required #userLastName='ngModel' placeholder="Last Name" name="lastName"
+      [(ngModel)]='user.userLastName'>
+    <span *ngIf='userLastName.errors?.required && userLastName.touched'>Missing Last Name</span>
+    <br><br>
+
+    <button [disabled]='signUpFormInfo.form.invalid' (click)='addnewUser()' class="btn btn-success"> Register</button>
+
+  </form>
+
+</div>
